@@ -185,17 +185,4 @@ public class CustomerController {
 		return response;
 	}
 	//============================================================================================//
-	
-	/*//============================================================================================//
-		// Delete a Customer given his ID	
-		@RequestMapping(method = RequestMethod.GET, value = "/delete/name/{firstNname}")
-		public Map<String,String> deleteCustomerByName( @PathVariable("firstName") String name){
-			mCustomerRepository.deleteByName(name);
-			Map<String,String> message = new HashMap<String,String>();
-			message.put("report", "Customer removed");
-			return message;
-			}
-		//============================================================================================//
-*/
-
 }
