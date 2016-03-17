@@ -14,23 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import rest_api.model.Customer;
 import rest_api.repository.CustomerRepository;
 
 
 @RestController
-//@RequestMapping("/customer")
+@RequestMapping("/customer")
 public class CustomerController {
 
 	@Autowired
 	private CustomerRepository mCustomerRepository;
 	
-	 @RequestMapping(value="/Admin", method=RequestMethod.GET)
-	    public ModelAndView panel(ModelAndView mav){
-	    	return new ModelAndView("CustomerManagement");
-	    	}
 	//============================================================================================//
 	// All Customers in DataBase
 	/*@RequestMapping(method = RequestMethod.GET)
@@ -47,7 +42,7 @@ public class CustomerController {
 		return response;
 	}*/
 	
-	@RequestMapping(value = "/customer", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> objectCustomer = mCustomerRepository.findAll();
 		Map<String, Object> response = new LinkedHashMap<String, Object>();
@@ -65,7 +60,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	// Get Customer with given ID
-	@RequestMapping(method = RequestMethod.GET, value = "/customer/id/{customerID}")
+	@RequestMapping(method = RequestMethod.GET, value = "/id/{customerID}")
 	public Map<String,Object> getCustomerDetails(@PathVariable("customerID") String customerID) {
 		Customer searchedByID = mCustomerRepository.findOne(customerID);
 		Map<String,Object> response = new HashMap<String,Object>();
@@ -83,7 +78,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	// Get Customer given their First Name
-	@RequestMapping(method = RequestMethod.GET, value = "/customer/firstname/{firstName}")
+	@RequestMapping(method = RequestMethod.GET, value = "/firstname/{firstName}")
 	public Map<String,Object> getCustomerByFirstName(@PathVariable("firstName") String firstName) {
 		List<Customer> searchedByFirstName = mCustomerRepository.findByFirstName(firstName);
 		Map<String,Object> responseSearchedByFirstName = new HashMap<String, Object>();
@@ -102,7 +97,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	//Get Customer given their Last Name
-	@RequestMapping(method=RequestMethod.GET, value = "/customer/lastname/{lastName}")
+	@RequestMapping(method=RequestMethod.GET, value = "/lastname/{lastName}")
 	public Map<String,Object> getCustomerByLastName(@PathVariable("lastName") String lastName){		
 		
 		List<Customer> searchedByLastName = mCustomerRepository.findByLastName(lastName);
@@ -121,7 +116,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	//Get Customer given their Age
-	@RequestMapping(method=RequestMethod.GET, value = "/customer/age/{age}")
+	@RequestMapping(method=RequestMethod.GET, value = "/age/{age}")
 	public Map<String,Object> getCustomerByAge(@PathVariable("age") int age){
 		List<Customer> searchedByAge = mCustomerRepository.findByAge(age);		
 		Map<String,Object> response = new HashMap<String, Object>();
@@ -140,7 +135,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	//Insert record
-	@RequestMapping(method = RequestMethod.POST, path = "/customer/insert")
+	@RequestMapping(method = RequestMethod.POST, path = "/insert")
 	public Map<String, Object> newCustomer(@RequestBody Map<String, Object> customerMap) {
 
 		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
@@ -157,7 +152,7 @@ public class CustomerController {
 
 	//============================================================================================//
 	// Update record of a Customer given their ID
-	@RequestMapping(method = RequestMethod.PUT, value = "/customer/update/id/{customerID}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/update/id/{customerID}")
 	public Map<String, Object> updCustomer(@PathVariable("customerID") String customerID,
 			@RequestBody Map<String, Object> customerMap) {
 		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
@@ -175,7 +170,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	// Delete a Customer given his ID	
-	@RequestMapping(value = "/customer/delete/id/{id}", method =  {RequestMethod.DELETE, RequestMethod.GET} )
+	@RequestMapping(value = "/delete/id/{id}", method =  {RequestMethod.DELETE, RequestMethod.GET} )
 	@ResponseBody
 	public Map<String,String> deleteCustomerById( @PathVariable("id") String id){
 		mCustomerRepository.delete(id);
