@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -150,9 +148,8 @@ public class CustomerController {
 	}*/
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/insert/")
-	public ResponseEntity<String> newCustomer(@RequestBody Customer customerMap) {
-		System.out.println("Creating User " + customerMap.getFirstName());
-		 
+	public ResponseEntity<Void> newCustomer(@RequestBody Customer customerMap) {
+				 
 		String firstName = customerMap.getFirstName().toString();
 		String lastName = customerMap.getLastName().toString();
 		int age = customerMap.getAge();
@@ -160,23 +157,15 @@ public class CustomerController {
 		
 		mCustomerRepository.save(mCustomer);
 
-		HttpHeaders header = new HttpHeaders();
-		header.setContentType(MediaType.APPLICATION_JSON);
-		/*Map<String, Object> successMessage = new LinkedHashMap<String, Object>();
-		successMessage.put("message", "Developer hired Successfully");
-		successMessage.put("customer", mCustomerRepository.save(mCustomer));*/
-
-		return new ResponseEntity<String>(header,HttpStatus.CREATED);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
-	
-	
 	
 	
 	//===========================================================================================//
 
 	//============================================================================================//
 	// Update record of a Customer given their ID
-	@RequestMapping(method = RequestMethod.PUT, value = "/update/id/{customerID}")
+/*	@RequestMapping(method = RequestMethod.PUT, value = "/update/id/{customerID}")
 	public Map<String, Object> updCustomer(@PathVariable("customerID") String customerID,
 			@RequestBody Map<String, Object> customerMap) {
 		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
@@ -188,6 +177,28 @@ public class CustomerController {
 		successMessage.put("customer", mCustomerRepository.save(mCustomer));
 
 		return successMessage;
+	}*/
+	
+	
+	@RequestMapping(value="/update/id/{id}",  method = RequestMethod.PUT)
+	public ResponseEntity<Customer> updateCustomer(@PathVariable ("id") String id, @RequestBody Customer customer ){
+		
+		Customer customerObj = mCustomerRepository.findOne(id);
+		
+		if(customerObj==null){
+			return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+		}
+		
+		String firstName = customer.getFirstName().toString();
+		String lastName = customer.getLastName().toString();
+		int age = customer.getAge();
+		
+		customerObj = new Customer(firstName,lastName,age);
+		customerObj.setId(id);
+				
+		mCustomerRepository.save(customerObj);
+		
+		return new ResponseEntity<Customer>(HttpStatus.OK);
 	}
 	//============================================================================================//
 

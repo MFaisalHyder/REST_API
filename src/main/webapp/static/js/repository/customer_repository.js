@@ -18,7 +18,7 @@ App.factory('CustomerService', ['$http', '$q', function($http,$q) {
 			},
 			
 			createCustomer: function(customer) {
-				return $http.post('http://192.168.0.100:8080/customer/insert', customer)
+				return $http.post('http://192.168.0.100:8080/Api/customer/insert/', customer)
 					.then(
 							function(response){
 								return response.data;
@@ -30,8 +30,8 @@ App.factory('CustomerService', ['$http', '$q', function($http,$q) {
 					);
 			},
 			
-			updateCustomer: function(id) {
-				return $http.put('http://192.168.0.100:8080/Api/customer/update/id/'+id)
+			updateCustomer: function(customer, id) {
+				return $http.put('http://192.168.0.100:8080/Api/customer/update/id/'+id, customer)
 					.then(
 							function(response){
 								return response.data;

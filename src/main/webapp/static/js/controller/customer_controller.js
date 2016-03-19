@@ -2,14 +2,14 @@
 
 App.controller('CustomerController', ['$scope', 'CustomerService', function($scope, CustomerService){	
 		var selfCustomer = this;
-		selfCustomer.customer={id:null, firstName:'', lastName:'', age:''};
+		selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
 		selfCustomer.customers=[];
 		
 		selfCustomer.getAllCustomers = function(){
 			CustomerService.getAllCustomers()
 			.then(
-					function(d){
-						selfCustomer.customers = d;						
+					function(obj){
+						selfCustomer.customers = obj;						
 					},
 					function(errResponse){
 						console.error('Error while fetching Customers');
@@ -17,8 +17,8 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
 			);			
 		};
 		
-		selfCustomer.createCustomer = function(customer){
-			CustomerService.createCustomer(customer)
+		selfCustomer.createCustomer = function(customerObj){
+			CustomerService.createCustomer(customerObj)
 			.then(
 					selfCustomer.getAllCustomers,
 					function(errResponse){
@@ -27,8 +27,8 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
 			);
 		};
 		
-		selfCustomer.updateCustomer = function(id){
-			CustomerService.updateCustomer(id)
+		selfCustomer.updateCustomer = function(customerObj, id){
+			CustomerService.updateCustomer(customerObj, id)
 			.then(
 					selfCustomer.getAllCustomers,
 					function(errResponse){
@@ -51,11 +51,11 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
 		selfCustomer.getAllCustomers();
 		
 		selfCustomer.submit = function() {
-             if(selfCustomer.customer.id==null){
+             if(selfCustomer.customer.id==''){
                  console.log('Saving New Customer', selfCustomer.customer);    
                  selfCustomer.createCustomer(selfCustomer.customer);
              }else{
-                 selfCustomer.updateCustomer(selfCustomer.customer.id);
+                 selfCustomer.updateCustomer(selfCustomer.customer, selfCustomer.customer.id);
                  console.log('User updated with id ', selfCustomer.customer.id);
              }
              selfCustomer.reset();
@@ -80,7 +80,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
 		}
 		
 		selfCustomer.reset = function(){
-			selfCustomer.customer={id:null, firstName:'', lastName:'', age:''};
+			selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
 			$scope.appForm.$setPristine();
 		};
 }]);
