@@ -3,13 +3,13 @@
 <head>
     <title>Cloud Data Service</title>
     <style>
-      .username.ng-valid {
+      .firstName.ng-valid {
           background-color: lightgreen;
       }
-      .username.ng-dirty.ng-invalid-required {
+      .firstName.ng-dirty.ng-invalid-required {
           background-color: red;
       }
-      .username.ng-dirty.ng-invalid-minlength {
+      .firstName.ng-dirty.ng-invalid-minlength {
           background-color: yellow;
       }
 
@@ -38,11 +38,11 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">First Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.customer.firstName" name="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                                  <input type="text" ng-model="ctrl.customer.firstName" name="fname" class="username form-control input-sm" placeholder="Enter your First Name" required ng-minlength="3"/>
                                   <div class="has-error" ng-show="appForm.$dirty">
-                                      <span ng-show="appForm.uname.$error.required">This is a required field</span>
-                                      <span ng-show="appForm.uname.$error.minlength">Minimum length required is 3</span>
-                                      <span ng-show="appForm.uname.$invalid">This field is invalid </span>
+                                      <span ng-show="appForm.fname.$error.required">This is a required field</span>
+                                      <span ng-show="appForm.fname.$error.minlength">Minimum length required is 3</span>
+                                      <span ng-show="appForm.fname.$invalid">This field is invalid </span>
                                   </div>
                               </div>
                           </div>
@@ -53,7 +53,12 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Last Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.customer.lastName" class="form-control input-sm" placeholder="Enter your Last Name"/>
+                                  <input type="text" ng-model="ctrl.customer.lastName" name ="lname" class="form-control input-sm" placeholder="Enter your Last Name" required ng-minlength ="3"/>
+                                  <div class="has-error" ng-show="appForm.$dirty">
+                                  	  <span ng-show="appForm.lname.$error.required">This is a required field</span>
+                                  	  <span ng-show="appForm.lname.$error.minlength">Minimum length required is 3</span>
+                                  	  <span ng-show="appForm.lname.$invalid">This field is invalid</span>                                  
+                                  </div>
                               </div>
                           </div>
                       </div>
@@ -101,7 +106,8 @@
                               <td><span ng-bind="u.lastName"></span></td>
                               <td><span ng-bind="u.age"></span></td>
                               <td>
-                              <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>  <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
+                              <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>
+                              <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>
                           </tr>
                       </tbody>
