@@ -53,7 +53,7 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Last Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.customer.lastName" class="form-control input-sm" placeholder="Enter your Address. [This field is validation free]"/>
+                                  <input type="text" ng-model="ctrl.customer.lastName" class="form-control input-sm" placeholder="Enter your Last Name"/>
                               </div>
                           </div>
                       </div>
@@ -62,10 +62,10 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Age</label>
                               <div class="col-md-7">
-                                  <input type="email" ng-model="ctrl.customer.age" name="email" class="email form-control input-sm" placeholder="Enter your Email" required/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.email.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.email.$invalid">This field is invalid </span>
+                                  <input type="number" ng-model="ctrl.customer.age" name="age" placeholder="Enter your Age" required/>
+                                  <div class="has-error" ng-show="appForm.$dirty">
+                                      <span ng-show="appForm.age.$error.required">This is a required field</span>
+                                      <span ng-show="appForm.age.$invalid">This field is invalid </span>
                                   </div>
                               </div>
                           </div>
@@ -73,8 +73,8 @@
 
                       <div class="row">
                           <div class="form-actions floatRight">
-                              <input type="submit"  value="{{!ctrl.customer.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
-                              <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                              <input type="submit"  value="{{!ctrl.customer.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="appForm.$invalid">
+                              <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="appForm.$pristine">Reset Form</button>
                           </div>
                       </div>
                   </form>
@@ -82,12 +82,12 @@
           </div>
           <div class="panel panel-default">
                 <!-- Default panel contents -->
-              <div class="panel-heading"><span class="lead">List of Users </span></div>
+              <div class="panel-heading"><span class="lead">List of Customers </span></div>
               <div class="tablecontainer">
                   <table class="table table-hover">
                       <thead>
                           <tr>
-                              <th>ID.</th>
+                              <th>ID</th>
                               <th>First Name</th>
                               <th>Last Name</th>
                               <th>Age</th>
