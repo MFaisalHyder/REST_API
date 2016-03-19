@@ -58,7 +58,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', function($sco
                  selfCustomer.updateCustomer(selfCustomer.customer.id);
                  console.log('User updated with id ', selfCustomer.customer.id);
              }
-             self.reset();
+             selfCustomer.reset();
          };
              
         selfCustomer.edit = function(id){

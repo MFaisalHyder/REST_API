@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -129,13 +131,11 @@ public class CustomerController {
 		}
 		return response;
 	}
-	//============================================================================================//
-	
-	
+	//============================================================================================//	
 	
 	//============================================================================================//
 	//Insert record
-	@RequestMapping(method = RequestMethod.POST, path = "/insert")
+	/*@RequestMapping(method = RequestMethod.POST, value = "/insert")
 	public Map<String, Object> newCustomer(@RequestBody Map<String, Object> customerMap) {
 
 		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
@@ -147,7 +147,31 @@ public class CustomerController {
 		successMessage.put("customer", mCustomerRepository.save(mCustomer));
 
 		return successMessage;
+	}*/
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/insert/")
+	public ResponseEntity<String> newCustomer(@RequestBody Customer customerMap) {
+		System.out.println("Creating User " + customerMap.getFirstName());
+		 
+		String firstName = customerMap.getFirstName().toString();
+		String lastName = customerMap.getLastName().toString();
+		int age = customerMap.getAge();
+		Customer mCustomer = new Customer(firstName,lastName,age);
+		
+		mCustomerRepository.save(mCustomer);
+
+		HttpHeaders header = new HttpHeaders();
+		header.setContentType(MediaType.APPLICATION_JSON);
+		/*Map<String, Object> successMessage = new LinkedHashMap<String, Object>();
+		successMessage.put("message", "Developer hired Successfully");
+		successMessage.put("customer", mCustomerRepository.save(mCustomer));*/
+
+		return new ResponseEntity<String>(header,HttpStatus.CREATED);
 	}
+	
+	
+	
+	
 	//===========================================================================================//
 
 	//============================================================================================//
@@ -170,7 +194,7 @@ public class CustomerController {
 	
 	//============================================================================================//
 	// Delete a Customer given his ID	
-	@RequestMapping(value = "/delete/id/{id}", method =  {RequestMethod.DELETE, RequestMethod.GET} )
+	@RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE )
 	@ResponseBody
 	public Map<String,String> deleteCustomerById( @PathVariable("id") String id){
 		mCustomerRepository.delete(id);

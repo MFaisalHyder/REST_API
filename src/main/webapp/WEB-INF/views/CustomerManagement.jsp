@@ -1,32 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><html>
-<head>
-    <title>Cloud Data Service</title>
-    <style>
-      .firstName.ng-valid {
-          background-color: lightgreen;
-      }
-      .firstName.ng-dirty.ng-invalid-required {
-          background-color: red;
-      }
-      .firstName.ng-dirty.ng-invalid-minlength {
-          background-color: yellow;
-      }
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+	<head>
+    	<title>Cloud Data Service</title>
+    	<style>
+      	.firstName.ng-valid {
+        	  background-color: lightgreen;
+     	 }
+      	.firstName.ng-dirty.ng-invalid-required {
+       	   background-color: red;
+      	}
+      	.firstName.ng-dirty.ng-invalid-minlength {
+       	   background-color: red;
+      	}      	
+      	.lastName.ng-valid {
+      		background-color: lightgreen;
+      	}
+      	.lastName.ng-dirty.ng-invalid-required {
+      		background-color: red;
+      	}
+      	.lastName.ng-dirty.ng-invalid-minlength {
+      		background-color:red;
+      	}
+      	.age.ng-valid {
+       	   background-color: lightgreen;
+      	}
+      	.age.ng-dirty.ng-invalid-required {
+       	   background-color: red;
+      	}	
+      	.age.ng-dirty.ng-invalid-maxlength {
+       	   background-color: red;
+      	}
 
-      .email.ng-valid {
-          background-color: lightgreen;
-      }
-      .email.ng-dirty.ng-invalid-required {
-          background-color: red;
-      }
-      .email.ng-dirty.ng-invalid-email {
-          background-color: yellow;
-      }
-
-    </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
-</head>
+    	</style>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	<link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
+	</head>
 <body ng-app="myApp" class="ng-cloak">
    <div class="generic-container" ng-controller="CustomerController as ctrl">
           <div class="panel panel-default">
@@ -38,9 +47,9 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">First Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.customer.firstName" name="fname" class="username form-control input-sm" placeholder="Enter your First Name" required ng-minlength="3"/>
+                                  <input type="text" ng-model="ctrl.customer.firstName" name="fname" class="firstName form-control input-sm" placeholder="Enter your First Name" required ng-minlength="3"/>
                                   <div class="has-error" ng-show="appForm.$dirty">
-                                      <span ng-show="appForm.fname.$error.required">This is a required field</span>
+                                      <span ng-show="appForm.fname.$error.required">*</span>
                                       <span ng-show="appForm.fname.$error.minlength">Minimum length required is 3</span>
                                       <span ng-show="appForm.fname.$invalid">This field is invalid </span>
                                   </div>
@@ -53,9 +62,9 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Last Name</label>
                               <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.customer.lastName" name ="lname" class="form-control input-sm" placeholder="Enter your Last Name" required ng-minlength ="3"/>
+                                  <input type="text" ng-model="ctrl.customer.lastName" name ="lname" class="lastName form-control input-sm" placeholder="Enter your Last Name" required ng-minlength ="3"/>
                                   <div class="has-error" ng-show="appForm.$dirty">
-                                  	  <span ng-show="appForm.lname.$error.required">This is a required field</span>
+                                  	  <span ng-show="appForm.lname.$error.required">*</span>
                                   	  <span ng-show="appForm.lname.$error.minlength">Minimum length required is 3</span>
                                   	  <span ng-show="appForm.lname.$invalid">This field is invalid</span>                                  
                                   </div>
@@ -67,9 +76,10 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Age</label>
                               <div class="col-md-7">
-                                  <input type="number" ng-model="ctrl.customer.age" name="age" placeholder="Enter your Age" required/>
+                                  <input type="number" ng-model="ctrl.customer.age" name="age" class="age form-control input-sm" placeholder="Enter your Age" required ng-maxlength="3"/>
                                   <div class="has-error" ng-show="appForm.$dirty">
-                                      <span ng-show="appForm.age.$error.required">This is a required field</span>
+                                      <span ng-show="appForm.age.$error.required">*</span>
+                                      <span ng-show="appForm.age.$error.maxlength">Max age in 3 digits</span>
                                       <span ng-show="appForm.age.$invalid">This field is invalid </span>
                                   </div>
                               </div>
