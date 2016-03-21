@@ -11,7 +11,6 @@ App.factory('CustomerService', ['$http', '$q', function($http,$q) {
 									return response.data;
 								},
 								function(errResponse){
-									console.error('Error retrieving Customers record')
 									return $q.reject(errResponse);
 								}					
 						);			

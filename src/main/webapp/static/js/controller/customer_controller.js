@@ -1,18 +1,18 @@
 'use strict';
 
-App.controller('CustomerController', ['$scope', 'CustomerService', function($scope, CustomerService){	
+App.controller('CustomerController', ['$scope', 'CustomerService', '$window', function($scope, CustomerService,$window){	
 		var selfCustomer = this;
 		selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
-		selfCustomer.customers=[];
+		selfCustomer.customers;
 		
 		selfCustomer.getAllCustomers = function(){
 			CustomerService.getAllCustomers()
 			.then(
-					function(obj){
-						selfCustomer.customers = obj;						
+					function(response){
+						selfCustomer.customers = response.customers;
 					},
 					function(errResponse){
-						console.error('Error while fetching Customers');
+						$window.alert('Error while fetching Customers');
 					}					
 			);			
 		};

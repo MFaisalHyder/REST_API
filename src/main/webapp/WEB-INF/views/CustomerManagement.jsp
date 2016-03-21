@@ -36,10 +36,10 @@
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     	<link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
 	</head>
-<body ng-app="myApp" class="ng-cloak">
+<body ng-app="myApp" class="ng-cloak" >
    <div class="generic-container" ng-controller="CustomerController as ctrl">
           <div class="panel panel-default">
-              <div class="panel-heading"><span class="lead">Customer Management Form </span></div>
+              <div class="panel-heading"><span class="lead">Customer Data Management Form</span></div>
               <div class="formcontainer">
                   <form ng-submit="ctrl.submit()" name="appForm" class="form-horizontal">
                       <input type="hidden" ng-model="ctrl.customer.id" />
@@ -97,7 +97,7 @@
           </div>
           <div class="panel panel-default">
                 <!-- Default panel contents -->
-              <div class="panel-heading"><span class="lead">List of Customers </span></div>
+              <div class="panel-heading"><span class="lead">List of Customers</span></div>
               <div class="tablecontainer">
                   <table class="table table-hover">
                       <thead>
@@ -111,10 +111,10 @@
                       </thead>
                       <tbody>
                           <tr ng-repeat="u in ctrl.customers">
-                              <td><span ng-bind="u.id"></span></td>
-                              <td><span ng-bind="u.firstName"></span></td>
-                              <td><span ng-bind="u.lastName"></span></td>
-                              <td><span ng-bind="u.age"></span></td>
+                              <td style="vertical-align: middle"><span ng-bind="u.id"></span></td>
+                              <td style="vertical-align: middle"><span ng-bind="u.firstName"></span></td>
+                              <td style="vertical-align: middle"><span ng-bind="u.lastName"></span></td>
+                              <td style="vertical-align: middle"><span ng-bind="u.age"></span></td>
                               <td>
                               <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>
                               <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>

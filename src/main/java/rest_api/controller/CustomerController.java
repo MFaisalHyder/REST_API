@@ -42,7 +42,7 @@ public class CustomerController {
 		return response;
 	}*/
 	
-	@RequestMapping(method = RequestMethod.GET)
+	/*@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> objectCustomer = mCustomerRepository.findAll();
 		Map<String, Object> response = new LinkedHashMap<String, Object>();
@@ -54,6 +54,20 @@ public class CustomerController {
 			response.put("result", objectCustomer.size() + " customer found");
 		}
 		return new ResponseEntity<List<Customer>>(objectCustomer,HttpStatus.OK);
+	}*/
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Map<String,Object>> getAllCustomers() {
+		List<Customer> objectCustomer = mCustomerRepository.findAll();
+		Map<String, Object> response = new LinkedHashMap<String, Object>();
+		
+		if(objectCustomer.size()>0){
+			response.put("totalCustomers", objectCustomer.size());
+			response.put("customers", objectCustomer);
+		}else{
+			response.put("result", objectCustomer.size() + " customer found");
+		}
+		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
 	}
 	//============================================================================================//
 
