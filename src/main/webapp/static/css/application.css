@@ -1,44 +1,65 @@
 body, #mainWrapper {
 	height: 70%;
-	background-color:rgb(245, 245, 245);
+	background-color: rgb(245, 245, 245);
 }
 
-body, .form-control{
-	font-size:12px!important;
+body, .form-control {
+	font-size: 12px !important;
 }
 
-.floatRight{
-	float:right;
+.floatRight {
+	float: right;
 	margin-right: 18px;
 }
 
-.has-error{
-	color:red;
+.has-error {
+	color: red;
 }
 
-.formcontainer{
+.formcontainer {
 	background-color: #DAE8E8;
 	padding: 20px;
 }
 
-.tablecontainer{
+.tablecontainer {
 	padding-left: 10px;
-	padding-right:10px;
-
+	padding-right: 10px;
 }
 
 .generic-container {
-  width:80%;
-  margin: auto;
-  margin-top:20px;
-  margin-bottom:20px;
-  padding: 20px;
-  background-color: #EAE7E7;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 0 30px black;
+	width: 80%;
+	margin: auto;
+	margin-top: 130px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #EAE7E7;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0 0 30px black;
 }
 
 .custom-width {
-    width: 80px !important;
+	width: 80px !important;
+}
+
+.logo {
+	text-align: center;
+	left: 30%;
+	position: absolute;
+	top: 30px;
+	vertical-align: middle;
+}
+
+#logoImage {
+	/* width="70" height="70" align="middle" */
+	width: 70;
+	height: 70;
+	align: middle;
+	border-radius: 10px;
+}
+
+#logoText {
+	font-size:25;
+	color:"#8C8989";
+	vertical-align:middle;	
 }

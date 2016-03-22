@@ -47,3 +47,7 @@ dependencies {
     testCompile("junit:junit")
     providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
 }
+
+eclipse {
+    project.natures 'org.eclipse.buildship.core.gradleprojectnature'
+}

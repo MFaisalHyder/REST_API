@@ -33,10 +33,15 @@
       	}
 
     	</style>
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
     	<link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
 	</head>
 <body ng-app="myApp" class="ng-cloak" >
+   <div class= "logo">   		
+    	<img id="logoImage" src = "<c:url value='/static/images/logo.png' />"/>
+    	<font id="logoText"> Mobile BackUp Management Panel</font>
+   </div>
    <div class="generic-container" ng-controller="CustomerController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">Customer Data Management Form</span></div>
@@ -76,9 +81,11 @@
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Age</label>
                               <div class="col-md-7">
-                                  <input type="number" ng-model="ctrl.customer.age" name="age" class="age form-control input-sm" placeholder="Enter your Age" required ng-maxlength="3"/>
+                                  <input type="number" ng-model="ctrl.customer.age" name="age" class="age form-control input-sm" placeholder="Enter your Age" required ng-maxlength="3" 
+                                    ng-pattern="/^([1-9][0-9]*)$/"/>
                                   <div class="has-error" ng-show="appForm.$dirty">
                                       <span ng-show="appForm.age.$error.required">*</span>
+                                      <span ng-show="appForm.age.$error.pattern">Not valid age</span>
                                       <span ng-show="appForm.age.$error.maxlength">Max age in 3 digits</span>
                                       <span ng-show="appForm.age.$invalid">This field is invalid </span>
                                   </div>
