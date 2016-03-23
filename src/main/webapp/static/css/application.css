@@ -63,3 +63,10 @@ body, .form-control {
 	color:"#8C8989";
 	vertical-align:middle;	
 }
+
+.sortingIcon:after {
+  content: '\25b2';
+}
+.sortingIcon.reverse:after {
+  content: '\25bc';
+}

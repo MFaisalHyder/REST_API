@@ -5,12 +5,19 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 		selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
 		selfCustomer.customers;
 		
+		selfCustomer.currentPage;
+		selfCustomer.offSet =0;
+		selfCustomer.pageSize = 5;
+		selfCustomer.predicate= 'age';
+				
+		
 		selfCustomer.getAllCustomers = function(){
 			CustomerService.getAllCustomers()
 			.then(
 					function(response){
 						selfCustomer.customers = response.customers;
-					},
+						//selfCustomer.pageResult(selfCustomer.customers);
+					},					
 					function(errResponse){
 						$window.alert('Error while fetching Customers');
 					}					
@@ -49,7 +56,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 		};
 	
 		selfCustomer.getAllCustomers();
-		
+				
 		selfCustomer.submit = function() {
              if(selfCustomer.customer.id==''){
                  console.log('Saving New Customer', selfCustomer.customer);    
@@ -83,4 +90,11 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 			selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
 			$scope.appForm.$setPristine();
 		};
+		
+
+		selfCustomer.sort = function(predicate) {
+		      $scope.reverse = (selfCustomer.predicate === predicate) ? !$scope.reverse : false;
+		      $scope.predicate = predicate;
+		};
+		
 }]);

@@ -104,7 +104,12 @@
           </div>
           <div class="panel panel-default">
                 <!-- Default panel contents -->
-              <div class="panel-heading"><span class="lead">List of Customers</span></div>
+              <div class="panel-heading"><span class="lead">List of Customers</span>
+              	<form class="form-inline">
+        				<label >Search</label>
+        			    <input type="text" ng-model="search" class="form-control" placeholder="Search">        			
+    			</form>              
+              </div>
               <div class="tablecontainer">
                   <table class="table table-hover">
                       <thead>
@@ -112,13 +117,15 @@
                               <th>ID</th>
                               <th>First Name</th>
                               <th>Last Name</th>
-                              <th>Age</th>
+                              <th ng-click="ctrl.sort('age')">Age
+                              <span class = "sortingIcon" ng-show="predicate === 'age'" ng-class="{reverse:reverse}"></span>
+                              </th>                              
                               <th width="20%"></th>
                           </tr>
                       </thead>
                       <tbody>
-                          <tr ng-repeat="u in ctrl.customers">
-                              <td style="vertical-align: middle"><span ng-bind="u.id"></span></td>
+                          <tr dir-paginate ="u in ctrl.customers| orderBy:predicate:reverse|filter:search|itemsPerPage:5">
+                              <td style="vertical-align: middle">{{u.id}}</td>
                               <td style="vertical-align: middle"><span ng-bind="u.firstName"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.lastName"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.age"></span></td>
@@ -128,13 +135,19 @@
                               </td>
                           </tr>
                       </tbody>
-                  </table>
+                  </table>                  
               </div>
+              <dir-pagination-controls
+       			max-size="5"
+       			direction-links="true"
+       			boundary-links="true" >
+    		  </dir-pagination-controls>              
           </div>
       </div>
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
+      <script src="<c:url value='/static/js/dirPagination.js'/>"></script>
       <script src="<c:url value='/static/js/repository/customer_repository.js' />"></script>
       <script src="<c:url value='/static/js/controller/customer_controller.js' />"></script>
   </body>

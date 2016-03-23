@@ -31,13 +31,23 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-data-rest")
+   compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("javax.servlet:jstl:1.2")
     compile ("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework:spring-webmvc:4.2.0.RELEASE")
+    compile("org.springframework:spring-tx:4.2.0.RELEASE")
+    
     compile("javax.servlet:javax.servlet-api:3.1.0")
+    compile("org.codehaus.jackson:jackson-mapper-asl:1.9.13")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.5.3")
+    compile("com.fasterxml.jackson.core:jackson-core:2.5.3")
+    
     testCompile("junit:junit")
     providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+}
+
+eclipse {
+    project.natures 'org.eclipse.buildship.core.gradleprojectnature'
 }
