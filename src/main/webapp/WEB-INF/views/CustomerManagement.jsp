@@ -105,10 +105,12 @@
           <div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Customers</span>
-              	<form class="form-inline">
-        				<label >Search</label>
+              	<div class = "searchBar">
+            	  	<form class="form-inline">
+        				<!-- <label >Search</label> -->
         			    <input type="text" ng-model="search" class="form-control" placeholder="Search">        			
-    			</form>              
+    				</form>
+    			</div>              
               </div>
               <div class="tablecontainer">
                   <table class="table table-hover">
@@ -136,13 +138,15 @@
                           </tr>
                       </tbody>
                   </table>                  
-              </div>
-              <dir-pagination-controls
+              </div>                      
+          </div>
+          <div class="paginaterDiv">
+              <dir-pagination-controls 
        			max-size="5"
        			direction-links="true"
        			boundary-links="true" >
     		  </dir-pagination-controls>              
-          </div>
+    		  </div>      
       </div>
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
