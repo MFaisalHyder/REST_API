@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
-    	<title>Cloud Data Service</title>
+    	<title>Customer Management</title>
     	<style>
       	.firstName.ng-valid {
         	  background-color: lightgreen;
@@ -40,7 +40,7 @@
 <body ng-app="myApp" class="ng-cloak" >
    <div class= "logo">   		
     	<img id="logoImage" src = "<c:url value='/static/images/logo.png' />"/>
-    	<font id="logoText"> Mobile BackUp Management Panel</font>
+    	<font id="logoText"> Customer Management Panel</font>
    </div>
    <div class="generic-container" ng-controller="CustomerController as ctrl">
           <div class="panel panel-default">

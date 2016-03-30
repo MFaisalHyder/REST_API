@@ -9,9 +9,18 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class ApplicationController {
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView getIndexPage(ModelAndView mav) {
+		return new ModelAndView("Index");
+	}	
+	
+	@RequestMapping(value = "panel" , method = RequestMethod.GET)
+	public ModelAndView getCustomerPage(ModelAndView mav) {
 		return new ModelAndView("CustomerManagement");
 	}
-
+	
+	@RequestMapping(value = "file" , method = RequestMethod.GET)
+	public ModelAndView getFilePage(ModelAndView mav){
+		return new ModelAndView("FileManagement");
+	}
 }

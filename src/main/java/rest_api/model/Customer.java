@@ -50,7 +50,7 @@ public class Customer {
 		return age;
 	}
 	
-	@Override
+	/*@Override
 	public boolean equals(Object object){
 		if(this == object) return true;
 		if(object == null) return false;
@@ -59,7 +59,7 @@ public class Customer {
 		Customer customerObj = (Customer) object;
 		if(id != customerObj.id) return false;
 		return true;
-	}
+	}*/
 
 	/*@Override
 	public String toString() {
