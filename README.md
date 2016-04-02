@@ -9,4 +9,4 @@ Spring MVC REST API with :
 	
 	4) Spring Boot for Rapid Development.
 	
-	5) Angular JS for front End UI panel and making http calls to server.
+	5) Angular JS for front end panel and making http calls to server.
