@@ -1,7 +1,12 @@
 # REST_API
 Spring MVC REST API with :
-*) MongoDB for DataBase.
-*) Spring MVC4 FramWork.  and Angular JS.
-*) Gradle as dependency manager.
-*) Spring Boot for Rapid Development.
-*) Angular JS for front End UI panel and making http calls to server.
+	
+	1) MongoDB for DataBase.
+	
+	2) Spring MVC4 FrameWork.  
+	
+	3) Gradle as dependency manager.
+	
+	4) Spring Boot for Rapid Development.
+	
+	5) Angular JS for front End UI panel and making http calls to server.
