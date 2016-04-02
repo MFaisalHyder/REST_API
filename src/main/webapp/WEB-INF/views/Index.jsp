@@ -12,17 +12,26 @@
 <link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
 </head>
 <body>
-	<h3 class = "indexHeader">Here we will provide you a brief walk in about our service</h3>
-	
-	<div class = "indexContent">
-		
-		<img id="customersLogo" src = "<c:url value='/static/images/logo.png' />"/>
-		<input	type="button" onclick="location.href='/Api/panel'"	value="Customer Panel" class="btn btn-primary btn-sm">
-		
-		<img id="documentsLogo" src = "<c:url value='/static/images/logo.png' />"/>
-		<input	type="button" onclick="location.href='/Api/file'"	value="Documents" class="btn btn-primary btn-sm">
-		
+	<div id = "header">
+	<img src="<c:url value='/static/images/logo_cloudtech.png' />"/>
+	<p> Cloud Tech Pvt. Limited </p>
 	</div>
 	
+	<h3 class = "indexHeader">Here we will provide you a brief walk in about our service</h3>
+	
+	<div class="dataCustomers">
+		<img id="customersLogo" src = "<c:url value='/static/images/logo_customer.png' />"/>
+		<input	id = "btnCustomers" type="button" onclick="location.href='/Api/panel'"	value="Customer Panel" class="btn btn-primary btn-sm">
+	</div>
+	
+	<div class="dataDocuments">
+		<img id="documentsLogo" src = "<c:url value='/static/images/logo_documents.png' />"/>
+		<input id = "btnDocuments" type="button" onclick="location.href='/Api/file'"	value="Documents" class="btn btn-primary btn-sm">
+	</div>	
+	
+	 <div id="footer">
+	 <p>Owned by Cloud Tech Pvt. Limited </p>
+	 
+	 </div>
 </body>
 </html>

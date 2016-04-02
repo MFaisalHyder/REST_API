@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import rest_api.model.Customer;
 import rest_api.repository.CustomerRepository;
 
-
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -28,34 +27,6 @@ public class CustomerController {
 	
 	//============================================================================================//
 	// All Customers in DataBase
-	/*@RequestMapping(method = RequestMethod.GET)
-	public Map<String, Object> getAllCustomers() {
-		List<Customer> objectCustomer = mCustomerRepository.findAll();
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-		
-		if(objectCustomer.size()>0){
-			response.put("totalCustomers", objectCustomer.size());
-			response.put("customers", objectCustomer);
-		}else{
-			response.put("result", objectCustomer.size() + " customer found");
-		}
-		return response;
-	}*/
-	
-	/*@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<Customer>> getAllCustomers() {
-		List<Customer> objectCustomer = mCustomerRepository.findAll();
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-		
-		if(objectCustomer.size()>0){
-			response.put("totalCustomers", objectCustomer.size());
-			response.put("customers", objectCustomer);
-		}else{
-			response.put("result", objectCustomer.size() + " customer found");
-		}
-		return new ResponseEntity<List<Customer>>(objectCustomer,HttpStatus.OK);
-	}*/
-	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Map<String,Object>> getAllCustomers() {
 		List<Customer> objectCustomer = mCustomerRepository.findAll();
@@ -70,7 +41,6 @@ public class CustomerController {
 		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
 	}
 	//============================================================================================//
-
 	
 	//============================================================================================//
 	// Get Customer with given ID
@@ -147,20 +117,6 @@ public class CustomerController {
 	
 	//============================================================================================//
 	//Insert record
-	/*@RequestMapping(method = RequestMethod.POST, value = "/insert")
-	public Map<String, Object> newCustomer(@RequestBody Map<String, Object> customerMap) {
-
-		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
-				customerMap.get("lastName").toString(), Integer.parseInt(customerMap.get("age").toString()));
-		mCustomerRepository.save(mCustomer);
-
-		Map<String, Object> successMessage = new LinkedHashMap<String, Object>();
-		successMessage.put("message", "Developer hired Successfully");
-		successMessage.put("customer", mCustomerRepository.save(mCustomer));
-
-		return successMessage;
-	}*/
-	
 	@RequestMapping(method = RequestMethod.POST, value = "/insert/")
 	public ResponseEntity<Void> newCustomer(@RequestBody Customer customerMap) {
 				 
@@ -179,21 +135,6 @@ public class CustomerController {
 
 	//============================================================================================//
 	// Update record of a Customer given their ID
-/*	@RequestMapping(method = RequestMethod.PUT, value = "/update/id/{customerID}")
-	public Map<String, Object> updCustomer(@PathVariable("customerID") String customerID,
-			@RequestBody Map<String, Object> customerMap) {
-		Customer mCustomer = new Customer(customerMap.get("firstName").toString(),
-				customerMap.get("lastName").toString(), Integer.parseInt(customerMap.get("age").toString()));
-		mCustomer.setId(customerID);
-
-		Map<String, Object> successMessage = new LinkedHashMap<String, Object>();
-		successMessage.put("message", "Customer updated Successfully");
-		successMessage.put("customer", mCustomerRepository.save(mCustomer));
-
-		return successMessage;
-	}*/
-	
-	
 	@RequestMapping(value="/update/id/{id}",  method = RequestMethod.PUT)
 	public ResponseEntity<Customer> updateCustomer(@PathVariable ("id") String id, @RequestBody Customer customer ){
 		
@@ -229,17 +170,4 @@ public class CustomerController {
 		return response;
 	}
 	//============================================================================================//
-	
-	/*//============================================================================================//
-		// Delete a Customer given his ID	
-		@RequestMapping(method = RequestMethod.GET, value = "/delete/name/{firstNname}")
-		public Map<String,String> deleteCustomerByName( @PathVariable("firstName") String name){
-			mCustomerRepository.deleteByName(name);
-			Map<String,String> message = new HashMap<String,String>();
-			message.put("report", "Customer removed");
-			return message;
-			}
-		//============================================================================================//
-*/
-
 }

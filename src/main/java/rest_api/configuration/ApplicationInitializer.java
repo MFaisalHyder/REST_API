@@ -26,15 +26,3 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 		return singleton;
 	}
 }
-
-/*
- * implements WebApplicationInitializer { public void onStartup(ServletContext
- * servletContext) throws ServletException {
- * AnnotationConfigWebApplicationContext ctx = new
- * AnnotationConfigWebApplicationContext();
- * ctx.register(ApplicationConfiguration.class);
- * ctx.setServletContext(servletContext); ctx.refresh(); Dynamic dynamic =
- * servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
- * dynamic.addMapping("/"); dynamic.setLoadOnStartup(1);
- * dynamic.setMultipartConfig(ctx.getBean(MultipartConfigElement.class)); } }
- */

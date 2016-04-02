@@ -3,13 +3,8 @@
 App.controller('CustomerController', ['$scope', 'CustomerService', '$window', function($scope, CustomerService,$window){	
 		var selfCustomer = this;
 		selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
-		selfCustomer.customers;
-		
-		selfCustomer.currentPage;
-		selfCustomer.offSet =0;
-		selfCustomer.pageSize = 5;
-		selfCustomer.predicate= 'age';
-				
+		selfCustomer.customers;		
+		selfCustomer.predicate= 'age';				
 		
 		selfCustomer.getAllCustomers = function(){
 			CustomerService.getAllCustomers()
@@ -50,7 +45,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 			.then(
 					selfCustomer.getAllCustomers,
 					function(errResponse){
-						console.error('Error while deleting Customer');
+						$window.alert('Error while deleting Customer');
 					}
 			);
 		};
@@ -90,8 +85,7 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 			selfCustomer.customer={id:'', firstName:'', lastName:'', age:''};
 			$scope.appForm.$setPristine();
 		};
-		
-
+	
 		selfCustomer.sort = function(predicate) {
 		      $scope.reverse = (selfCustomer.predicate === predicate) ? !$scope.reverse : false;
 		      $scope.predicate = predicate;

@@ -39,7 +39,7 @@
 	</head>
 <body ng-app="myApp" class="ng-cloak" >
    <div class= "logo">   		
-    	<img id="logoImage" src = "<c:url value='/static/images/logo.png' />"/>
+    	<img id="logoImage" src = "<c:url value='/static/images/logo_customers.png' />"/>
     	<font id="logoText"> Customer Management Panel</font>
    </div>
    <div class="generic-container" ng-controller="CustomerController as ctrl">
@@ -146,7 +146,7 @@
        			direction-links="true"
        			boundary-links="true" >
     		  </dir-pagination-controls>              
-    		  </div>      
+    	  </div>      
       </div>
       
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>

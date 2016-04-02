@@ -7,6 +7,60 @@ body, .form-control {
 	font-size: 12px !important;
 }
 
+#header {
+	position: relative;
+	height: 60px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	background-color: #3c4543;
+	width: 99.2%;
+	margin-left: 5px;
+}
+
+#header p {
+	text-size: 20px;
+	margin-top: 20px;
+	color: white;
+	vertical-align: middle;
+	margin-right: 10px;
+	display: inline-block;
+	font-size: 15px;
+	margin-right: 10px;
+}
+
+#header img {
+	width: 120px;
+	height: 45px;
+	margin-top: 5px;
+	margin-left: 20px;
+	border-color: purple;
+	border-width: 3px;
+	border-radius: 20px;
+}
+
+#footer {
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	bottom: -8px;
+	clear: both;
+	position: fixed;
+	bottom: 0px;
+	width: 99.2%;
+	margin-left: 5px;
+	height: 60px;
+	background-color: #3c4543;
+	margin-left: 5px;
+}
+
+#footer p {
+	float: right;
+	text-size: 20px;
+	margin-top: 20px;
+	color: white;
+	margin-right: 10px;
+	display: block;
+}
+
 .floatRight {
 	float: right;
 	margin-right: 18px;
@@ -83,21 +137,60 @@ body, .form-control {
 	display: inline-block;
 	position: absolute;
 	right: 15%;
-	margin-top:-2px;
+	margin-top: -2px;
 }
 
 .indexHeader {
-		
+	text-align: center;
 }
 
-.indexContent {
-	
-}
-
-#customersLogo {
-		
+.dataDocuments {
+	text-align: center;
+	margin-top: 60px;
 }
 
 #documentsLogo {
-	
+	border-radius: 10px;
+	left: 54%;
+	margin-top: -197px;
+	position: absolute;
+	height: 150px;
+	width: 150px;
 }
+
+#btnDocuments {
+	display: block;
+	margin-top: 10px;
+	left: 56%;
+	margin-left: 5px;
+	margin-top: -50px;
+	position: absolute;
+}
+
+.dataCustomers {
+	text-align: center;
+	margin-top: 100px;
+}
+
+#customersLogo {
+	border-radius: 10px;
+	margin-left: -160px;
+	height: 150px;
+	width: 150px;
+}
+
+#btnCustomers {
+	display: block;
+	margin-top: 10px;
+	left: 40%;
+	position: absolute;
+}
+
+.btnRemove {
+	margin-left: 50px;
+}
+/* img:hover {
+	-moz-transform: scale(0.95);
+	-webkit-transform: scale(0.95);
+	-o-transform: scale(2);
+} */
