@@ -12,7 +12,23 @@
     		<img id="logoImage" src = "<c:url value='/static/images/logo_document.png' />"/>
     		<font id="logoText">Document Management Panel</font>
    		</div>
+		
 		<div class="generic-container" ng-controller="FileController as ctrl">	
+			<div class="panel panel-default">
+            	<div class="panel-heading"><span class="lead">Document Insertion Form</span></div>
+        			<div class="formcontainer">
+						<form method="post" enctype="multipart/form-data" action="/Api/document/insert/" class="form-horizontal">
+						Upload File:					
+							<input type="file" name="file" class="form-control input-sm">
+							<div class="row">
+								<div class="form-actions floatRight">
+									<input type="submit" value="Upload" class="btn btn-primary btn-sm custom-width btnUpload">
+								</div>			
+							</div>	
+						</form>
+					</div>
+		 		</div>
+		 	
 		 	<div class="panel panel-default">
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Documents</span>

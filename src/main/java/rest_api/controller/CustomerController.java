@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import rest_api.model.Customer;
@@ -161,7 +160,6 @@ public class CustomerController {
 	//============================================================================================//
 	// Delete a Customer given his ID	
 	@RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE )
-	@ResponseBody
 	public Map<String,String> deleteCustomerById( @PathVariable("id") String id){
 		mCustomerRepository.delete(id);
 		

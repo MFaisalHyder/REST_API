@@ -189,8 +189,9 @@ body, .form-control {
 .btnRemove {
 	margin-left: 50px;
 }
-/* img:hover {
-	-moz-transform: scale(0.95);
-	-webkit-transform: scale(0.95);
-	-o-transform: scale(2);
-} */
+
+.btnUpload {
+	margin-right: 50px;
+	height: 35px;
+	margin-top: 15px;
+}
