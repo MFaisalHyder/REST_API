@@ -31,7 +31,6 @@
       	.age.ng-dirty.ng-invalid-maxlength {
        	   background-color: red;
       	}
-
     	</style>
     	
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
@@ -62,7 +61,6 @@
                           </div>
                       </div>
                         
-                      
                       <div class="row">
                           <div class="form-group col-md-12">
                               <label class="col-md-2 control-lable" for="file">Last Name</label>

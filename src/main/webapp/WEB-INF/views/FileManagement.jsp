@@ -17,12 +17,13 @@
 			<div class="panel panel-default">
             	<div class="panel-heading"><span class="lead">Document Insertion Form</span></div>
         			<div class="formcontainer">
-						<form method="post" enctype="multipart/form-data" action="/Api/document/insert/" class="form-horizontal">
+						<form method="post" enctype="multipart/form-data" action="/Api/document/insert/" name="fileForm" class="form-horizontal">
 						Upload File:					
-							<input type="file" name="file" class="form-control input-sm">
-							<div class="row">
+							<input type="file" name="file" class="form-control input-sm" required>
+								
+							<div class="row">	
 								<div class="form-actions floatRight">
-									<input type="submit" value="Upload" class="btn btn-primary btn-sm custom-width btnUpload">
+									<input type="submit" value="Upload" class="btn btn-primary btn-sm custom-width btnUpload"/>
 								</div>			
 							</div>	
 						</form>
@@ -38,7 +39,7 @@
     				</form>
     			</div>              
               </div>
-              <div class="tablecontainer" name="fileForm">
+              <div class="tablecontainer">
                   <table class="table table-hover">
                       <thead>
                           <tr>
@@ -57,9 +58,8 @@
                               <td style="vertical-align: middle"><span ng-bind="u.filename"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.uploadDate"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.length"></span> Bytes</td>
-                              <td>
-                             <!--  <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button> -->
-                              <button type="button" ng-click="ctrl.remove(u.id)" class="btnRemove btn btn-danger custom-width">Remove</button>
+                              <td style="vertical-align: middle">                             
+                              	<button type="button" ng-click="ctrl.remove(u.id)" class="btnRemove btn btn-danger custom-width">Remove</button>
                               </td>
                           </tr>
                       </tbody>
@@ -76,6 +76,7 @@
     	</div>
     	
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+	   	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
       	<script src="<c:url value='/static/js/app.js' />"></script>
       	<script src="<c:url value='/static/js/dirPagination.js'/>"></script>
       	<script src="<c:url value='/static/js/repository/file_repository.js' />"></script>
