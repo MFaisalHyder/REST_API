@@ -18,6 +18,7 @@
             	<div class="panel-heading"><span class="lead">Document Insertion Form</span></div>
         			<div class="formcontainer">
 						<form method="post" enctype="multipart/form-data" action="/Api/document/insert/" name="fileForm" class="form-horizontal">
+						<!-- <form ng-submit="ctrl.submit()" enctype="multipart/form-data" name="fileForm" class="form-horizontal"> -->
 						Upload File:					
 							<input type="file" name="file" class="form-control input-sm" required>
 								
@@ -53,7 +54,7 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr dir-paginate ="u in ctrl.files| orderBy:predicate:reverse|filter:search|itemsPerPage:5">
+                          <tr dir-paginate ="u in ctrl.filesObj| orderBy:predicate:reverse|filter:search|itemsPerPage:5">
                               <td style="vertical-align: middle">{{u.id}}</td>
                               <td style="vertical-align: middle"><span ng-bind="u.filename"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.uploadDate"></span></td>

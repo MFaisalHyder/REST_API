@@ -65,7 +65,8 @@ public class FileController {
  
 	/*-------------------------------------------------------------------------*/
 	//Insert a File
-	@RequestMapping(method=RequestMethod.POST, value = "/insert/")
+	@SuppressWarnings("deprecation")
+	@RequestMapping(method=RequestMethod.POST, value = "/insert/",  consumes = {"multipart/form-data"})
 	public ResponseEntity<Void> insertFile(@RequestParam("file") MultipartFile file) throws IOException{
 		MongoClient mClient = new MongoClient("192.168.0.100",27017);
 		DB mDB = mClient.getDB("springtest");
@@ -76,6 +77,7 @@ public class FileController {
 		GridFSInputFile gridFSIF = gridFS.createFile(fileChunks);
 		gridFSIF.setFilename(file.getOriginalFilename());
 		gridFSIF.save();
+		mClient.close();
 		
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}	

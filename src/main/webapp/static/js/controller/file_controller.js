@@ -1,17 +1,17 @@
 'use strict';
 
-App.controller('FileController', ['$scope', 'FileService', '$window', function($scope,FileService,$window){
+App.controller('FileController', ['$scope', 'FileService', '$window', '$http', function($scope,FileService,$window,$http){
 		var document = this;
-		document.file = {id:'', uploadDate:'', filename:'',length:''};
-		document.files;
-		document.fileDocx;
+		document.fileObj = {id:'', uploadDate:'', filename:'',length:''};
+		document.filesObj;
 		document.predicate = 'length';
+		
 		
 		document.getAllDocuments = function(){
 			FileService.getAllDocuments()
 				.then(
 						function(response){
-							document.files = response.files;
+							document.filesObj = response.files;
 						},
 						function(errResponse){
 							$window.alert('Error while fetching Files from DataBase');
@@ -40,21 +40,21 @@ App.controller('FileController', ['$scope', 'FileService', '$window', function($
 		};
 		
 		document.getAllDocuments();
-		
+	
 		document.submit = function(){
 			document.insertDocument(document.fileDocx);
 			document.reset();
 		};
 		
 		document.remove = function(id){
-			if(document.file.id === id){ 
+			if(document.fileObj.id === id){ 
 				document.reset();
 			}
 			document.deleteDocument(id);			
 		};
 		
 		document.reset = function(){
-			document.file = {id:'', uploadDate:'', filename:'',length:''};
+			document.fileObj = {id:'', uploadDate:'', filename:'',length:''};
 			$scope.fileForm.$setPristine();
 		};
 		
