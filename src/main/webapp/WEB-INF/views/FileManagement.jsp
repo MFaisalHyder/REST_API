@@ -9,22 +9,36 @@
 	
 	<body ng-app="myApp" class="ng-cloak">
 		<div class= "logo">   		
-    		<img id="logoImage" src = "<c:url value='/static/images/logo_document.png' />"/>
-    		<font id="logoText">Document Management Panel</font>
+    		<img id="logoImage" src = "<c:url value='/static/images/logo_docs.png' />"/>
+    		<font id="logoText">Document Management Panel</font>    		 		    		
    		</div>
+   		   		
+   		<div class="headerIcons">
+   			<a href="/Api/">
+   				<img id="logoHome" src="<c:url value='/static/images/logo_home.png' />"/>
+   			</a>
+    		<a href="/Api/panel">
+    			<img id="logoCustomers" src="<c:url value='/static/images/logo_user.png' />"/>
+    		</a>    		    		   			
+   		</div>
+		
+		<div class="shadow-below-header"></div>
 		
 		<div class="generic-container" ng-controller="FileController as ctrl">	
 			<div class="panel panel-default">
             	<div class="panel-heading"><span class="lead">Document Insertion Form</span></div>
         			<div class="formcontainer">
-						<form method="post" enctype="multipart/form-data" action="/Api/document/insert/" name="fileForm" class="form-horizontal">
-						<!-- <form ng-submit="ctrl.submit()" enctype="multipart/form-data" name="fileForm" class="form-horizontal"> -->
-						Upload File:					
-							<input type="file" name="file" class="form-control input-sm" required>
+						<!-- <form method="post" enctype="multipart/form-data" action="/Api/document/insert/" name="fileForm" class="form-horizontal"> -->
+						<form ng-submit="ctrl.uploadFile()" class="form-horizontal" name="fileForm">			
 								
+							<input type="file" name="fileField" file-model="ctrl.docs" class="form-control input-sm" required/>
+										
+							<!-- <input type="file" name="file" ng-model="file" class="file form-control input-sm" required/> -->
+							 
 							<div class="row">	
 								<div class="form-actions floatRight">
-									<input type="submit" value="Upload" class="btn btn-primary btn-sm custom-width btnUpload"/>
+									<input type="submit" value="Upload"  class="btn btn-primary btn-sm custom-width btnUpload"/>
+									<button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm custom-width btnClear">Clear</button>
 								</div>			
 							</div>	
 						</form>
@@ -55,7 +69,7 @@
                       </thead>
                       <tbody>
                           <tr dir-paginate ="u in ctrl.filesObj| orderBy:predicate:reverse|filter:search|itemsPerPage:5">
-                              <td style="vertical-align: middle">{{u.id}}</td>
+                              <td style="vertical-align: middle"><span ng-bind="u.id"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.filename"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.uploadDate"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.length"></span> Bytes</td>
@@ -76,9 +90,9 @@
     	  </div>
     	</div>
     	
-    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-	   	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-      	<script src="<c:url value='/static/js/app.js' />"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    	<script src="<c:url value='/static/js/app.js' />"></script>
       	<script src="<c:url value='/static/js/dirPagination.js'/>"></script>
       	<script src="<c:url value='/static/js/repository/file_repository.js' />"></script>
       	<script src="<c:url value='/static/js/controller/file_controller.js' />"></script>		

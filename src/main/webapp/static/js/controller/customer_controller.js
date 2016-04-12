@@ -11,7 +11,6 @@ App.controller('CustomerController', ['$scope', 'CustomerService', '$window', fu
 			.then(
 					function(response){
 						selfCustomer.customers = response.customers;
-						//selfCustomer.pageResult(selfCustomer.customers);
 					},					
 					function(errResponse){
 						$window.alert('Error while fetching Customers');

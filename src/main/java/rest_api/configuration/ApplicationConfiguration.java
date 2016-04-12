@@ -12,19 +12,19 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "rest_api")
-public class ApplicationConfiguration extends WebMvcConfigurerAdapter{
-	
+public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
+
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
-		registry.viewResolver(viewResolver);		
-	}	
+		registry.viewResolver(viewResolver);
+	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-	}	
+	}
 }

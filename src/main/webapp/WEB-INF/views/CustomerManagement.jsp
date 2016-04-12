@@ -38,9 +38,21 @@
 	</head>
 <body ng-app="myApp" class="ng-cloak" >
    <div class= "logo">   		
-    	<img id="logoImage" src = "<c:url value='/static/images/logo_customers.png' />"/>
+    	<img id="logoImage" src = "<c:url value='/static/images/logo_user.png' />"/>
     	<font id="logoText"> Customer Management Panel</font>
    </div>
+   
+   <div class="shadow-below-header"></div>
+   
+   <div class="headerIcons">
+   			<a href="/Api/">
+   				<img id="logoHome" src="<c:url value='/static/images/logo_home.png' />"/>
+   			</a>
+    		<a href="/Api/file">
+    			<img id="logoFiles" src="<c:url value='/static/images/logo_docs.png' />"/>
+    		</a>    		    		   			
+   		</div>
+   		
    <div class="generic-container" ng-controller="CustomerController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">Customer Data Management Form</span></div>

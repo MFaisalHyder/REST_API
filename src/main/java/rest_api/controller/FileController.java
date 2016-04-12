@@ -66,20 +66,23 @@ public class FileController {
 	/*-------------------------------------------------------------------------*/
 	//Insert a File
 	@SuppressWarnings("deprecation")
-	@RequestMapping(method=RequestMethod.POST, value = "/insert/",  consumes = {"multipart/form-data"})
-	public ResponseEntity<Void> insertFile(@RequestParam("file") MultipartFile file) throws IOException{
+	@RequestMapping(method=RequestMethod.POST, value = "/insert/")		
+		public ResponseEntity<String> insertFile(@RequestParam("file") MultipartFile file) throws IOException{
 		MongoClient mClient = new MongoClient("192.168.0.100",27017);
 		DB mDB = mClient.getDB("springtest");
-		
+		if(!file.isEmpty()){
 		byte[] fileChunks = file.getBytes();
 		
 		GridFS gridFS = new GridFS(mDB,"file");
 		GridFSInputFile gridFSIF = gridFS.createFile(fileChunks);
 		gridFSIF.setFilename(file.getOriginalFilename());
-		gridFSIF.save();
+		gridFSIF.save();	
 		mClient.close();
-		
-		return new ResponseEntity<Void>(HttpStatus.CREATED);
+		}else{
+			mClient.close();
+			return new ResponseEntity<String>("Errorroroorr",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}	
 	/*-------------------------------------------------------------------------*/
 	

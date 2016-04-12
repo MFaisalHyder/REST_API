@@ -16,6 +16,7 @@
 	<img src="<c:url value='/static/images/logo_cloudtech.png' />"/>
 	<p> Cloud Tech Pvt. Limited </p>
 	</div>
+	<div class="shadow-below-header"></div>
 	
 	<h3 class = "indexHeader">Here we will provide you a brief walk in about our service</h3>
 	

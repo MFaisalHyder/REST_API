@@ -2,11 +2,13 @@
 
 App.controller('FileController', ['$scope', 'FileService', '$window', '$http', function($scope,FileService,$window,$http){
 		var document = this;
+		
 		document.fileObj = {id:'', uploadDate:'', filename:'',length:''};
 		document.filesObj;
 		document.predicate = 'length';
-		
-		
+		document.docs;
+		document.docsField=[];
+				
 		document.getAllDocuments = function(){
 			FileService.getAllDocuments()
 				.then(
@@ -19,6 +21,28 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 				);
 		};
 		
+		document.uploadFile=function(){
+			var file = document.docs;
+			var formData=new FormData();
+        	formData.append('file',file);
+        	var url = "/Api/document/insert/";
+        	console.log(formData);
+        	$http.post(url, formData, {
+                transformRequest: angular.identity,
+                headers: {'Content-Type': undefined}
+            })
+           .success(
+        		   document.getAllDocuments,
+        		   function(data, status) {        	   	   
+	                    alert("successfully uploaded");
+			})
+            .error(function(){
+            });
+        	
+        	document.reset();
+        	
+        };
+				
 		document.deleteDocument = function(id){
 			FileService.deleteDocument(id)
 				.then(
@@ -41,11 +65,6 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 		
 		document.getAllDocuments();
 	
-		document.submit = function(){
-			document.insertDocument(document.fileDocx);
-			document.reset();
-		};
-		
 		document.remove = function(id){
 			if(document.fileObj.id === id){ 
 				document.reset();
@@ -55,6 +74,7 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 		
 		document.reset = function(){
 			document.fileObj = {id:'', uploadDate:'', filename:'',length:''};
+			angular.element("input[type='file']").val(null);
 			$scope.fileForm.$setPristine();
 		};
 		
@@ -62,5 +82,7 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 			$scope.reverse = (document.predicate === predicate) ? !$scope.reverse : false;
 			$scope.predicate = predicate;
 		};
+				
 		
+              
 }]);

@@ -1,6 +1,7 @@
 package rest_api.configuration;
 
 import javax.servlet.Filter;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -25,4 +26,5 @@ public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherSe
 		Filter[] singleton = { new CORSFilter() };
 		return singleton;
 	}
+	
 }
