@@ -16,7 +16,6 @@ body, .form-control {
 	width: 99.%;
 }
 
-
 #header p {
 	text-size: 20px;
 	margin-top: 20px;
@@ -39,13 +38,12 @@ body, .form-control {
 }
 
 .shadow-below-header {
-	-webkit-box-shadow: 0 1px  5px   2px gray;
-	   -moz-box-shadow: 0 1px  5px   2px gray;
-	        box-shadow: 0 1px  5px   2px gray;
-	      	height:1px;
-	      	background-color:gray;	      
+	-webkit-box-shadow: 0 1px 5px 2px gray;
+	-moz-box-shadow: 0 1px 5px 2px gray;
+	box-shadow: 0 1px 5px 2px gray;
+	height: 1px;
+	background-color: gray;
 }
-
 
 #footer {
 	border-bottom-right-radius: 15px;
@@ -108,34 +106,34 @@ body, .form-control {
 	left: 30%;
 	margin-top: 0px;
 	vertical-align: middle;
-	background-color:lightslategray;
-	border-radius:4px;
-	color:whitesmoke;
+	background-color: lightslategray;
+	border-radius: 4px;
+	color: whitesmoke;
 }
 
 .headerIcons {
-	display:inline-block;
-	float:right;
-	margin-top:-60px;
+	display: inline-block;
+	float: right;
+	margin-top: -60px;
 }
 
 #logoHome {
-	height:55px;
-	width:75px;
-	margin-right:-10px;
-
+	height: 55px;
+	width: 75px;
+	margin-right: -10px;
 }
+
 #logoCustomers {
-	height:45px;
-	width:45px;
-	margin-right:15px;
-	border-radius:100px;	
+	height: 45px;
+	width: 45px;
+	margin-right: 15px;
+	border-radius: 100px;
 }
 
 .headerIcons img:hover {
-	 opacity:0.8;
-		
+	opacity: 0.8;
 }
+
 #logoImage {
 	width: 70;
 	height: 70;
@@ -144,9 +142,9 @@ body, .form-control {
 }
 
 #logoFiles {
-	height:45px;
-	width:45px;
-	margin-right:15px;
+	height: 45px;
+	width: 45px;
+	margin-right: 15px;
 }
 
 #logoText {
@@ -187,21 +185,37 @@ body, .form-control {
 }
 
 #documentsLogo {
-	border-radius: 10px;
-	left: 54%;
-	margin-top: -197px;
+	border-radius: 20px;
+	left: 58%;
+	margin-top: -200px;
 	position: absolute;
-	height: 150px;
-	width: 150px;
+	height: 140px;
+	width: 145px;
+	border: 2px solid lightslategray;
 }
 
 #btnDocuments {
 	display: block;
 	margin-top: 10px;
-	left: 56%;
+	left: 59.9%;
 	margin-left: 5px;
 	margin-top: -50px;
 	position: absolute;
+}
+
+.btnAnimate:active {
+	transform: translate(0px, 4px);
+	-webkit-transform: translate(0px, 4px);
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.btnAnimate:hover {
+	-webkit-transition: opacity 4s;
+	transition: opacity 4s;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	background-color: darkturquoise;
 }
 
 .dataCustomers {
@@ -210,16 +224,17 @@ body, .form-control {
 }
 
 #customersLogo {
-	border-radius: 10px;
-	margin-left: -160px;
-	height: 150px;
+	border-radius: 45px;
+	margin-left: -50px;
+	height: 145px;
 	width: 150px;
+	border: 2px solid lightslategray;
 }
 
 #btnCustomers {
 	display: block;
 	margin-top: 10px;
-	left: 40%;
+	left: 44%;
 	position: absolute;
 }
 
@@ -237,4 +252,72 @@ body, .form-control {
 	margin-right: 20px;
 	height: 35px;
 	margin-top: 15px;
+}
+
+.vrLeft {
+	width: 5px;
+	background-color: #3c4543;
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	left: 0px;
+}
+
+.vrRight {
+	width: 5px;
+	background-color: #3c4543;
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	right: 0px;
+}
+
+.leftPane {
+	text-align: center;
+	width: 290px;
+	background-color: #e7edd9;
+	position: absolute;
+	top: 60px;
+	opacity: 0.8;
+	bottom: 15px;
+	left: 5px;
+	z-index: -1;
+}
+
+.leftPane #paneHeading {
+	margin-top: 100px;
+}
+
+.underLinePaneHeading {
+	background-color: sienna;
+	height: 3px;
+	margin-top: -5px;
+	margin-right: 15px;
+	margin-left: 15px;
+	border-radius: 30px;
+}
+
+.leftPane p {
+	margin-top: 25px;
+	font-size: 13px;
+	text-align: justify;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.paneImages img {
+	border: 2px solid gray;
+	height: 48px;
+	width: 48px;
+	margin-top: 200px;
+	border-radius: 25px;
+}
+
+.animateImg:hover {
+	transition: opacity 4s;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	height:42px;
+	width:42px;
+	opacity: 0.9;
 }
