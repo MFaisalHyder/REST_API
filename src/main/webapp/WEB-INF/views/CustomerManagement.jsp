@@ -49,7 +49,7 @@
    				<img id="logoHome" src="<c:url value='/static/images/logo_home.png' />"/>
    			</a>
     		<a href="/Api/file">
-    			<img id="logoFiles" src="<c:url value='/static/images/logo_docs.png' />"/>
+    			<img id="logoFiles"  src="<c:url value='/static/images/logo_docs.png' />"/>
     		</a>    		    		   			
    		</div>
    		
