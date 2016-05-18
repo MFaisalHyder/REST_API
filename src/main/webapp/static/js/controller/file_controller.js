@@ -34,13 +34,11 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
            .success(
         		   document.getAllDocuments,
         		   function(data, status) {        	   	   
-	                    alert("successfully uploaded");
+	                    $window.alert("successfully uploaded");
 			})
             .error(function(){
-            });
-        	
-        	document.reset();
-        	
+            });        	
+        	document.reset();        	
         };
 				
 		document.deleteDocument = function(id){
@@ -52,19 +50,53 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 						}
 				);
 		};
+				
+		/*	document.downloadFile = function(id){
+			
+        	var url = "/Api/document/download/id/"+id;        	       	        	
+        	$http({
+
+                method: 'GET',
+                url,
+                responseType: 'arraybuffer'
+            })
+            .success(function(data, status){
+
+                var blob = new Blob([data], {type: 'application/octet-stream'});
+                saveAs(blob,'file');
+            })
+            .error(function(data, status){
+            });
+        	
+        };       
+        
+        $http({
+            url : '/Api/document/download/id/'+id,
+            method : 'GET',
+            params : {},
+            headers : {
+                'Content-type' : 'application/*',
+            },
+            responseType : 'arraybuffer'
+        }).success(function(data, status, headers, config) {
+            var file = new Blob([ data ], {
+                type : 'application/octet-stream'
+            });
+            //trick to download store a file having its URL
+            var fileURL = URL.createObjectURL(file);
+            var a         = document.createElement('a');
+            a.href        = fileURL; 
+            a.target      = '_blank';
+            a.download    = 'yourfilename.pdf';
+            document.body.appendChild(a);
+            a.click();
+        }).error(function(data, status, headers, config) {
+
+        });
+    };
+    */
+        document.getAllDocuments();	
 		
-		document.insertDocument = function(file){
-			FileService.insertDocument(file)
-			.then(
-					document.getAllDocuments,
-					function(errResponse){
-						console.error('Error while inserting File');
-					}					
-			);
-		};
-		
-		document.getAllDocuments();
-	
 		document.remove = function(id){
 			if(document.fileObj.id === id){ 
 				document.reset();
@@ -81,8 +113,5 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 		document.sort = function(predicate) {
 			$scope.reverse = (document.predicate === predicate) ? !$scope.reverse : false;
 			$scope.predicate = predicate;
-		};
-				
-		
-              
+		};             
 }]);

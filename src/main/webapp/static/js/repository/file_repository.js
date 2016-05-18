@@ -24,20 +24,7 @@ App.factory('FileService', ['$http', '$q', function($http,$q){
 							function(err) {
 								return $q.reject(err);
 							}							
-					);					
-			},
-			
-			insertDocument : function(file) {
-				return $http.post('http://192.168.0.100:8080/Api/document/insert/',file)
-					.then(
-							function(response){
-								return response.data;
-							},
-							function(errResponse){
-								console.error('Error inserting file');
-								return $q.reject(errResponse);
-							}
-					);
-			}
+					);				
+		}
 		};
 }]);

@@ -141,7 +141,7 @@
                               <td style="vertical-align: middle"><span ng-bind="u.firstName"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.lastName"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.age"></span></td>
-                              <td>
+                              <td style="vertical-align: middle">
                               <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>
                               <button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>

@@ -73,8 +73,11 @@
                               <td style="vertical-align: middle"><span ng-bind="u.filename"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.uploadDate"></span></td>
                               <td style="vertical-align: middle"><span ng-bind="u.length"></span> Bytes</td>
-                              <td style="vertical-align: middle">                             
-                              	<button type="button" ng-click="ctrl.remove(u.id)" class="btnRemove btn btn-danger custom-width">Remove</button>
+                              <td style="vertical-align: middle">     
+                                 <a ng-href="<c:url value='/document/download/id/{{u.id}}'/>" class="btn btn-success custom-width">Download</a>                
+                              	 <!-- <button type="button" ng-click="ctrl.downloadFile(u.id)" class="btn btn-success custom-width">Download</button> -->
+                              	
+                              	<button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-danger custom-width">Remove</button>
                               </td>
                           </tr>
                       </tbody>
@@ -92,6 +95,8 @@
     	
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    	
+    	<%-- <script src="<c:url value='/static/js/FileSaver.js' />"></script> --%>
     	<script src="<c:url value='/static/js/app.js' />"></script>
       	<script src="<c:url value='/static/js/dirPagination.js'/>"></script>
       	<script src="<c:url value='/static/js/repository/file_repository.js' />"></script>
