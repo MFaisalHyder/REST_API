@@ -22,9 +22,11 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 		viewResolver.setSuffix(".jsp");
 		registry.viewResolver(viewResolver);
 	}
-
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}
+	
+	
 }
