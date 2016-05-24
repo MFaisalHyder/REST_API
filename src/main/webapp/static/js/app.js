@@ -21,6 +21,8 @@ App.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
+var RegApp = angular.module('regApp', []);
+
 /*App.directive('fileField', function() {
 	  var template = '<input type="file" name="files"/>';
 	  return function( scope, elem, attrs ) {
