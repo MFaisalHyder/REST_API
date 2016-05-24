@@ -82,7 +82,10 @@ public class FileController {
 		
 		GridFS gridFS = new GridFS(mDB,"file");
 		GridFSInputFile gridFSIF = gridFS.createFile(fileChunks);
+		
+		gridFSIF.setContentType(file.getContentType());
 		gridFSIF.setFilename(file.getOriginalFilename());
+		//gridFSIF.containsField();
 		gridFSIF.save();	
 		mClient.close();
 		}else{
