@@ -1,25 +1,27 @@
-package rest_api.controller;
+/*package rest_api.controller;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Controller
 @RequestMapping("/")
 @Configuration
-public class ApplicationController extends WebMvcConfigurerAdapter {
+public class ApplicationController {
 
 	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView getHomePage() {
+		return new ModelAndView("Home");
+	}
+
+	@RequestMapping(value = "admin", method = RequestMethod.GET)
 	public ModelAndView getIndexPage() {
-		return new ModelAndView("Index");
+		return new ModelAndView("Admin");
 	}
 
 	@RequestMapping(value = "panel", method = RequestMethod.GET)
 	public ModelAndView getCustomerPage() {
-		return new ModelAndView("CustomerManagement");
+		return new ModelAndView("UserManagement");
 	}
 
 	@RequestMapping(value = "file", method = RequestMethod.GET)
@@ -36,5 +38,5 @@ public class ApplicationController extends WebMvcConfigurerAdapter {
 	public ModelAndView getUserRegisterPage() {
 		return new ModelAndView("Registration");
 	}
-
 }
+*/

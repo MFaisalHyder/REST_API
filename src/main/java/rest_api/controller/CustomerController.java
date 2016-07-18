@@ -101,7 +101,7 @@ public class CustomerController {
 	//Get Customer given their Age
 	@RequestMapping(method=RequestMethod.GET, value = "/age/{age}")
 	public Map<String,Object> getCustomerByAge(@PathVariable("age") int age){
-		List<Customer> searchedByAge = mCustomerRepository.findByAge(age);		
+		List<Customer> searchedByAge = mCustomerRepository.findByAge(age);
 		Map<String,Object> response = new HashMap<String, Object>();
 		
 		if(searchedByAge.size()>0){
