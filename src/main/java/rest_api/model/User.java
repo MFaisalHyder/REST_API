@@ -24,6 +24,14 @@ public class User {
 		this.age = age;
 	}
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
