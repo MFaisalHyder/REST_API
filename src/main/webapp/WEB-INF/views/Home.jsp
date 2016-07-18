@@ -11,7 +11,6 @@
 	</head>
 
 	<body class="security-app">
-	
 		<div class="lc-block">	
 			<div class="details">		
 				<h2>Welcome to the Home Page</h2>
