@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Page Not Found</title>
-<style>
+	<head>
+		<meta charset="utf-8">
+		<title>Page Not Found</title>
+	
+	<style>
 ::-moz-selection {
 	background: #b3d4fc;
 	text-shadow: none;
@@ -64,13 +65,13 @@ ul {
 	_width: 500px;
 	margin: 0 auto;
 }
-</style>
+	</style>
 </head>
-<body>
-	<div class="container">
-		<h1>
-			Sorry, ${exception.message} <span>:(</span>
-		</h1>
-	</div>
-</body>
+	<body>
+		<div class="container">
+			<h1>
+				Sorry, ${exception.message} <span>:(</span>
+			</h1>
+		</div>
+	</body>
 </html>
