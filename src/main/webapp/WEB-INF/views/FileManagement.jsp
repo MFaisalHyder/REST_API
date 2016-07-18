@@ -14,8 +14,8 @@
    		</div>
    		   		
    		<div class="headerIcons">
-   			<a href="/Api/">
-   				<img id="logoHome" src="<c:url value='/static/images/logo_home.png' />"/>
+   			<a href="/Api/login">
+   				<img id="logoLogout" src="<c:url value='/static/images/logo_logout.png' />"/>
    			</a>
     		<a href="/Api/panel">
     			<img id="logoCustomers" src="<c:url value='/static/images/logo_user.png' />"/>
@@ -94,9 +94,8 @@
     	</div>
     	
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>    	
     	
-    	<%-- <script src="<c:url value='/static/js/FileSaver.js' />"></script> --%>
     	<script src="<c:url value='/static/js/app.js' />"></script>
       	<script src="<c:url value='/static/js/dirPagination.js'/>"></script>
       	<script src="<c:url value='/static/js/repository/file_repository.js' />"></script>

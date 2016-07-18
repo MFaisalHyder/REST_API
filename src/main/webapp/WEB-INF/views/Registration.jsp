@@ -12,7 +12,7 @@
       	}
       	.userName.ng-dirty.ng-invalid-minlength {
        	   background-color: red;
-      	}    	
+      	}
       	.firstName.ng-valid {
         	  background-color: lightgreen;
      	 }
@@ -57,15 +57,15 @@
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
     	<link href="<c:url value='/static/css/application.css' />" rel="stylesheet"></link>
 	</head>
-<body ng-app="regApp" class="ng-cloak" >
-   <div class= "logo">   		
-    	<img id="logoImage" src = "<c:url value='/static/images/logo_user.png' />"/>
-    	<font id="logoText"> User registration</font>
-   </div>
+	<body ng-app="regApp" class="ng-cloak" >
+   		<div class= "logo">   		
+    		<img id="logoImage" src = "<c:url value='/static/images/logo_user.png' />"/>
+    		<font id="logoText"> User registration</font>
+  		</div>
    
-   <div class="shadow-below-header"></div>
+   		<div class="shadow-below-header"></div>
    
-   <div class="generic-container" ng-controller="UserController as ctrl">
+  		<div class="generic-container" ng-controller="UserRegController as ctrl">
           <div class="panel panel-default">
               <div class="panel-heading"><span class="lead">User Registration Form</span></div>
               <div class="formcontainer">
@@ -126,16 +126,16 @@
                           </div>
                       </div>
                       
-                       <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="password">Password</label>
-                              <div class="col-md-7">
-                                  <input type="password" ng-model="ctrl.user.password" name="password" class="password form-control input-sm" placeholder="Enter Password" required ng-minlength="6"/>
-                                  <div class="has-error" ng-show="appForm.$dirty">
-                                      <span ng-show="appForm.password.$error.minlength">Minimum of 6 characters</span>
-                                  </div>
-                              </div>
-                          </div>
+                      <div class="row">
+                      	<div class="form-group col-md-12">
+                        	<label class="col-md-2 control-lable" for="password">Password</label>
+                            <div class="col-md-7">
+                               	<input type="password" ng-model="ctrl.user.password" name="password" class="password form-control input-sm" placeholder="Enter Password" required ng-minlength="6"/>
+                               	<div class="has-error" ng-show="appForm.$dirty">
+                                   	<span ng-show="appForm.password.$error.minlength">Minimum of 6 characters</span>
+                               	</div>
+                            </div>
+                        </div>
                       </div>
                       
                       <div class="row">
@@ -169,7 +169,7 @@
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
       <script src="<c:url value='/static/js/app.js' />"></script>
-      <script src="<c:url value='/static/js/repository/user_repository.js' />"></script>
-      <script src="<c:url value='/static/js/controller/user_controller.js' />"></script>
+      <script src="<c:url value='/static/js/repository/userReg_repository.js' />"></script>
+      <script src="<c:url value='/static/js/controller/userReg_controller.js' />"></script>
   </body>
 </html>

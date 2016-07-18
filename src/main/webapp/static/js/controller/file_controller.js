@@ -49,59 +49,15 @@ App.controller('FileController', ['$scope', 'FileService', '$window', '$http', f
 							$window.alert('Error while deleting File');
 						}
 				);
-		};
-				
-		/*	document.downloadFile = function(id){
-			
-        	var url = "/Api/document/download/id/"+id;        	       	        	
-        	$http({
-
-                method: 'GET',
-                url,
-                responseType: 'arraybuffer'
-            })
-            .success(function(data, status){
-
-                var blob = new Blob([data], {type: 'application/octet-stream'});
-                saveAs(blob,'file');
-            })
-            .error(function(data, status){
-            });
-        	
-        };       
-        
-        $http({
-            url : '/Api/document/download/id/'+id,
-            method : 'GET',
-            params : {},
-            headers : {
-                'Content-type' : 'application/*',
-            },
-            responseType : 'arraybuffer'
-        }).success(function(data, status, headers, config) {
-            var file = new Blob([ data ], {
-                type : 'application/octet-stream'
-            });
-            //trick to download store a file having its URL
-            var fileURL = URL.createObjectURL(file);
-            var a         = document.createElement('a');
-            a.href        = fileURL; 
-            a.target      = '_blank';
-            a.download    = 'yourfilename.pdf';
-            document.body.appendChild(a);
-            a.click();
-        }).error(function(data, status, headers, config) {
-
-        });
-    };
-    */
+		};				
+	
         document.getAllDocuments();	
 		
 		document.remove = function(id){
 			if(document.fileObj.id === id){ 
 				document.reset();
 			}
-			document.deleteDocument(id);			
+			document.deleteDocument(id);
 		};
 		
 		document.reset = function(){

@@ -107,20 +107,59 @@ body, .form-control {
 	margin-top: 0px;
 	vertical-align: middle;
 	background-color: lightslategray;
-	border-radius: 4px;
 	color: whitesmoke;
+}
+
+.headerUser {
+	text-align: center;
+	left: 30%;
+	margin-top: 0px;
+	height: 15%;
+	vertical-align: middle;
+	background-color: lightslategray;
+	color: whitesmoke;
+	vertical-align: middle;
 }
 
 .headerIcons {
 	display: inline-block;
 	float: right;
-	margin-top: -60px;
+	margin-top: -55px;
 }
 
 #logoHome {
 	height: 55px;
 	width: 75px;
 	margin-right: -10px;
+}
+
+#logoLogout {
+	height: 45px;
+	width: 45px;
+	margin-right: 5px;
+	border-radius: 100px;
+}
+
+#logoLogoutAdmin {
+	height: 45px;
+	width: 45px;
+	margin-right: 20px;
+	border-radius: 100px;
+	z-index: 2;
+	position: relative;
+	float: right;
+	margin-top: -50px;
+}
+
+#logoLogoutUser {
+	height: 45px;
+	width: 45px;
+	margin-right: 20px;
+	border-radius: 100px;
+	z-index: 2;
+	position: relative;
+	float: right;
+	margin-top: -55px;
 }
 
 #logoCustomers {
@@ -151,6 +190,15 @@ body, .form-control {
 	font-size: 25;
 	color: "#8C8989";
 	vertical-align: middle;
+}
+
+#headerUserText {
+	font-size: 25;
+	color: "#8C8989";
+	margin-top: 100px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 60px;
 }
 
 .sortingIcon:after {
@@ -317,4 +365,3 @@ body, .form-control {
 	width: 42px;
 	opacity: 0.9;
 }
-
