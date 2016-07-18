@@ -19,8 +19,7 @@
 		
    		<a href="/Api/login">
    			<img id="logoLogoutAdmin" src="<c:url value='/static/images/logo_logout.png' />"/>
-   		</a>    		    		    		   			
-   		
+   		</a>   		
 		
 		<div class="shadow-below-header"></div>
 	
@@ -40,8 +39,7 @@
 						<img class="animateImg" src="<c:url value='/static/images/icon_linkedin.png' />"/>
 						<img class="animateImg" src="<c:url value='/static/images/icon_web.png' />"/>
 				</div>
-		</div>
-		
+		</div>		
 	
 		<div class="dataCustomers">
 			<img id="customersLogo" class="animateImg" src = "<c:url value='/static/images/logo_customer.png' />"/>
@@ -51,11 +49,7 @@
 		<div class="dataDocuments">
 			<img id="documentsLogo" class="animateImg" src = "<c:url value='/static/images/icon_document.png' />"/>
 			<input id = "btnDocuments" type="button" onclick="location.href='/Api/file'"	value="Documents" class="btn btn-primary btn-sm btnAnimate"/>
-		</div>	
-		
-		<div>
-			
-		</div>
+		</div>		
 	
 		<div id="footer">
 			<p>Owned by Cloud Tech Pvt. Limited </p>
