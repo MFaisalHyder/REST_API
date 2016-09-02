@@ -12,7 +12,8 @@ Spring MVC REST API with :
 	5) Angular JS for data binding for Web App and making http calls to server.
 	
 	
-Issue : 
+Issue :
+
 	1) Gradle Sync failed (on F5 / Refresh Gradle Project) gradle : with error 'You have provided wrong JDK HOME'
 	=> go to X:\YourDirectory\WorkspacesName\REST_API\.settings\gradle
 	In this file change project directory, gradle home and java home to ward off error of Gradle Sync.
