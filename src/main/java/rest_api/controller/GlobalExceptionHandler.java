@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(IOException.class)
-	  public ModelAndView myError(Exception message) {	    
+	  public ModelAndView myError(Exception message) {
 		
 		ModelAndView mavIO = new ModelAndView();
 		mavIO.addObject("exception", message);
@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
 	  }
 		
 	@ExceptionHandler(NullPointerException.class)
-	public ModelAndView userNotFound(Exception message) {		
+	public ModelAndView userNotFound(Exception message) {
 
 		ModelAndView mavNP = new ModelAndView();
 		mavNP.addObject("exception", message);
